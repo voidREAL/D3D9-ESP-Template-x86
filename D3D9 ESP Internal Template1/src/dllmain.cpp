@@ -51,15 +51,9 @@ DWORD WINAPI HackThread(HMODULE hModule) {
 		VirtualFree(present, 5, MEM_FREE);
 		VirtualFree(resetFunc, 5, MEM_FREE);
 
+		FreeConsole();
 		if (f) {
 			fclose(f);
-		}
-
-		FreeConsole();
-		HWND hWnd = GetConsoleWindow();
-
-		if (hWnd) {
-			PostMessage(hWnd, WM_CLOSE, 0, 0);
 		}
 
 		Sleep(1000);
